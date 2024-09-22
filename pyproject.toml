@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "learning-site"
+version = "0.1"
+description = "my first project"
+authors = ["Your Name <you@example.com>"]
+license = "1"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlalchemy = "^2.0.35"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
