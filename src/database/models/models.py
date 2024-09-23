@@ -27,6 +27,7 @@ class Task(Base):
     description: Mapped[str] = mapped_column(String(1000), nullable=False)
     solution: Mapped[str] = mapped_column(String(1000), nullable=True)
 
+
 class User(Base):
     __tablename__ = "user"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -39,9 +40,9 @@ class User(Base):
     role: Mapped[Role] = relationship("Role", back_populates="users")
     course: Mapped[Course] = relationship("Course", back_populates="users")
 
+
 class CourseTask(Base):
     __tablename__ = "course_task"
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
     course_id: Mapped[int] = mapped_column(Integer, ForeignKey('course.id'))
     task_id: Mapped[int] = mapped_column(Integer, ForeignKey('task.id'))
 
