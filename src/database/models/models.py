@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Column, Integer, String, Numeric, ForeignKey
-from base import Base
-
+from src.database.models.base import Base
 # Создание модели роль
 
 
@@ -43,8 +42,8 @@ class User(Base):
 
 class CourseTask(Base):
     __tablename__ = "course_task"
-    course_id: Mapped[int] = mapped_column(Integer, ForeignKey('course.id'))
-    task_id: Mapped[int] = mapped_column(Integer, ForeignKey('task.id'))
+    course_id: Mapped[int] = mapped_column(Integer, ForeignKey('course.id'), primary_key=True)
+    task_id: Mapped[int] = mapped_column(Integer, ForeignKey('task.id'),  primary_key=True)
 
     course: Mapped[Course] = relationship("Course", back_populates="coursetasks")
     task: Mapped[Task] = relationship("Task", back_populates="coursetasks")
