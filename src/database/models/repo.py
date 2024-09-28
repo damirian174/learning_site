@@ -2,6 +2,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from sqlalchemy import update, delete
 from sqlalchemy.exc import NoResultFound
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
+
+
 
 class LearningRepo:
     def __init__(self, session: AsyncSession, orm_model):
