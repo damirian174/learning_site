@@ -3,17 +3,11 @@ from pydantic import BaseModel
 from typing import List
 import asyncio
 # Предположим, что у тебя есть доступ к ORM-моделям и базовой логике
-from models import Task, User
+from src.database.models.models import Task, User
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+from src.endpoints.schemes import STask, SUser
 
-class SUser(BaseModel):
-    name: str
-    email: str
-
-class STask(BaseModel):
-    title: str
-    description: str
 
 router = APIRouter()
 
